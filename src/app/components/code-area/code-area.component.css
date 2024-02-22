@@ -1,0 +1,39 @@
+.code-area__container {
+  display: flex;
+  gap: 2em;
+  flex-direction: column;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.code-area__container > button {
+  font-family: inherit;
+  box-sizing: border-box;
+  width: 35%;
+  padding: .65em 1.25em;
+  border-radius: 0.75em;
+  border: none;
+  background-color: #C3FF45;
+  color: #121212;
+  font-weight: 600;
+  font-size: 1.2em;
+}
+
+.code-area__container > textarea {
+  height: 30vh;
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+  color: #EDEDED;
+  }
+
+.code-area__container > textarea:focus-visible {
+  outline: none;
+}
+
+.code-area__container > textarea::-webkit-resizer {
+  background-color: transparent;
+}
+
+.code-area__container > textarea::placeholder {
+  padding: 0 1em;
+}

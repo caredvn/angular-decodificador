@@ -1,0 +1,11 @@
+@import url(./header--container.component.css);
+
+.container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+header {
+  font-size: inherit
+}
