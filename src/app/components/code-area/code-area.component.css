@@ -46,10 +46,6 @@
   .code-area__container > button {
     width: 70%;
   }
-
-  .code-area__container > textarea {
-    height: 50vh;
-  }
 }
 
 @media screen and (min-width: 1024px) {

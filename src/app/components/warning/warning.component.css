@@ -1,0 +1,15 @@
+.warning__container > p {
+  font-size: 1em;
+  font-weight: 900;
+}
+
+.warning__container > p::before {
+  content: '';
+  background-image: url(https://raw.githubusercontent.com/caredvn/angular-decodificador/912cd9b3fdd97d661bfa5b20be391da9d22359e7/src/assets/img/asterisk.svg);
+  background-repeat: no-repeat;
+  background-position: center;background-size: contain;
+  display: inline-block;
+  padding-right: .5em;
+  width: 1em;
+  height: 1em;
+}

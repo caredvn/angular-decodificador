@@ -1,0 +1,8 @@
+.footer__container {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  color: #121212;
+  background-color: #C3FF45;
+  padding: 2em 0;
+}

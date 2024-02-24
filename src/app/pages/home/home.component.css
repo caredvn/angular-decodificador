@@ -1,4 +1,5 @@
 @import url(./header--container.component.css);
+@import url(./footer--container.component.css);
 
 .container{
   display: flex;
