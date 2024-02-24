@@ -7,7 +7,7 @@
 
 .code-area__container > button {
   font-family: inherit;
-  box-sizing: border-box;
+  box-sizing: content-box;
   width: 35%;
   padding: .65em 1.25em;
   border-radius: 0.75em;
@@ -15,6 +15,7 @@
   background-color: #C3FF45;
   color: #121212;
   font-weight: 600;
+  cursor: pointer;
   font-size: 1.2em;
 }
 
@@ -36,4 +37,23 @@
 
 .code-area__container > textarea::placeholder {
   padding: 0 1em;
+}
+
+@media screen and (min-width: 768px) {
+  .code-area__container {
+    padding-top: 1em;
+  }
+  .code-area__container > button {
+    width: 70%;
+  }
+
+  .code-area__container > textarea {
+    height: 50vh;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .code-area__container > button {
+    width: 40%;
+  }
 }

@@ -1,0 +1,51 @@
+.decode-area__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #EDEDED;
+  font-size: 1.2em;
+}
+
+.decode-area__placeholder > p {
+  width: 50%;
+  text-align: center;
+  line-height: 1.25em;
+
+}
+.decode-area__placeholder > p > span {
+  color: #C3FF45;
+  font-size: 1.15em;
+  line-height: 1.5em;
+}
+
+.decode-area__placeholder > p::before {
+  content: '';
+  background-image: url(https://raw.githubusercontent.com/caredvn/angular-decodificador/bc50f0021cad4de1812b72fb305400cf3831a5d6/src/assets/img/question-mark.svg);
+  background-repeat: no-repeat;
+  background-position: center;background-size: contain;
+  display: inline-block;
+  position: absolute;
+  left: 15%;
+  width: 2em;
+  height: 2em;
+}
+
+.decode-area__placeholder > p::after {
+  content: '';
+  background-image: url(https://raw.githubusercontent.com/caredvn/angular-decodificador/bc50f0021cad4de1812b72fb305400cf3831a5d6/src/assets/img/question-mark.svg);
+  background-repeat: no-repeat;
+  background-position: center;background-size: contain;
+  display: inline-block;
+  position: absolute;
+  right: 15%;
+  top: 38%;
+  width: 2em;
+  height: 2em;
+}
+
+@media screen and (min-width: 768px) {
+  .decode-area__placeholder > p::after {
+    top: 39%;
+  }
+}

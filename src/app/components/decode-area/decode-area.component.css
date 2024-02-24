@@ -1,0 +1,88 @@
+@import url(./decode-area--placeholder.component.css);
+
+.decode-area__container {
+  background-color: #2D2D2D;
+  height: 25vh;
+  padding: 1em;
+  position: relative;
+  font-size: inherit;
+  border-radius: 0.75em;
+  font-family: 'JetBrains Mono';
+}
+
+.decode-area__text {
+  display: grid;
+  grid-template-rows: 2fr .5fr;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+  color: #EDEDED;
+  line-height: 1.25em;
+}
+
+.btn {
+  font-family: inherit;
+  box-sizing: content-box;
+  border-radius: 0.75em;
+  border: none;
+  color: #121212;
+  font-weight: 600;
+  font-size: 1.2em;
+  padding: 0.25em 0.35em;
+  cursor: pointer;
+  align-self: self-end;
+  padding: .75em;
+}
+
+[disabled] {
+  opacity: 0.3;
+  cursor: initial;
+}
+
+.copy {
+  background-color: #FF73A5;
+  grid-row: 2;
+  grid-column: 1;
+  justify-self: start;
+}
+
+.decode {
+  background-color: #FCE71F;
+  grid-row: 2;
+  grid-column: 2;
+  justify-self: end;
+}
+
+@media screen and (min-width: 768px) {
+  .decode-area__container {
+    height: 60vh;
+  }
+
+.decode-area__text {
+    grid-template-rows: auto 2fr auto;
+    grid-template-columns: 1fr;
+    gap: 1em;
+  }
+
+  .decode-area__text p {
+    padding-left: 1.5em;
+  }
+
+  .copy {
+    grid-row: 3;
+    width: 50%;
+    justify-self: center;
+  }
+
+  .decode {
+    width: 80%;
+    grid-row: 1;
+    grid-column: 1;
+    justify-self: self-end;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .decode-area__container {
+    width: 100%;
+  }
+}

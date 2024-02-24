@@ -2,6 +2,7 @@
 
 .container{
   display: flex;
+  gap: 1em;
   flex-direction: column;
   width: 100%;
 }
@@ -9,3 +10,36 @@
 header {
   font-size: inherit
 }
+
+@media screen and (min-width: 768px) {
+  main {
+    display: flex;
+    justify-content: space-between;
+    gap: .5em;
+  }
+
+  main > div {
+    width: 1px;
+    height: 60vh;
+    background-color: #121212;
+  }
+
+  main > section {
+    width: 45%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  main {
+    display: grid;
+    justify-content: space-between;
+    gap: 3em;
+    grid-template-columns: 1.5fr 1px 1fr;
+    grid-template-rows: none;
+  }
+
+  main > section {
+    width: 90%;
+  }
+}
+
