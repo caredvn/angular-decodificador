@@ -4,6 +4,6 @@
   </article>
   <article class="decode-area__text" *ngIf="newText.length > 0">
     <p>{{ newText }}</p>
-    <button class="btn copy" (click)="copyText()">Copiar</button>
+    <button class="btn copy" (click)="copy(newText)">Copiar</button>
   </article>
 </div>

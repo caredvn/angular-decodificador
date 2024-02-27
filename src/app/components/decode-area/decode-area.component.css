@@ -62,5 +62,13 @@
     grid-row: 3;
     width: 50%;
     justify-self: center;
+    border: 1px solid transparent;
+    transition: 300ms ease-in-out;
+  }
+
+  .copy:hover {
+    border: 1px solid #FF73A5;
+    background-color: transparent;
+    color: #FF73A5;
   }
 }

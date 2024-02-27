@@ -17,6 +17,7 @@
   color: #C3FF45;
   font-size: 1.15em;
   line-height: 1.5em;
+  transition: letter-spacing 300ms ease-in-out;
 }
 
 .decode-area__placeholder > p::before {
@@ -47,5 +48,9 @@
 @media screen and (min-width: 768px) {
   .decode-area__placeholder > p::after {
     top: 42%;
+  }
+
+  .decode-area__placeholder > p > span:hover {
+    letter-spacing: .3rem;
   }
 }

@@ -56,6 +56,21 @@
   .btn {
     width: 70%;
     margin-bottom: 1.6rem;
+    border: 1px solid transparent;
+    transition: 300ms ease-in-out;
+    transition-property: border, background-color, color;
+  }
+
+  .code:hover {
+    border: 1px solid #C3FF45;
+    background-color: transparent;
+    color: #C3FF45;
+  }
+
+  .decode:hover {
+    border: 1px solid #FCE71F;
+    background-color: transparent;
+    color: #FCE71F;
   }
 }
 
@@ -63,4 +78,6 @@
   .btn {
     width: 40%;
   }
+
+
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-// import { ClipboardService } from 'ngx-clipboard';
+import { Clipboard } from '@angular/cdk/clipboard';
+
 
 @Component({
   selector: 'app-decode-area',
@@ -11,12 +12,11 @@ export class DecodeAreaComponent implements OnInit {
   @Input() textWritten: string = "";
   @Output() newTextWrittenChange: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor(
-    // private clipboardApi: ClipboardService
-  ) { }
+  constructor( private clipboard: Clipboard ) { }
 
-  copyText() {
-    // this.clipboardApi.copyFromContent(this.textWritten)
+  copy(value: string) {
+    this.clipboard.copy(value)
+    this.newText = '';
   }
 
   ngOnInit(): void {

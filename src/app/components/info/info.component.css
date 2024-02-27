@@ -49,4 +49,13 @@
   .info__container > img {
     width: 1.5em;
   }
+
+  .info__contacts > ul > li {
+    transition: 200ms ease-in-out;
+    transition-property: filter;
+  }
+
+  .info__contacts > ul > li:hover {
+    filter: invert(1);
+  }
 }

@@ -41,7 +41,6 @@ export class CodeAreaComponent implements OnInit {
   }
 
   code(): void {
-    const currentTextWritten = this.textWritten;
     for (var i = 0; i < this.textWritten.length; i++) {
         var currentLetter = this.textWritten.charAt(i);
         var encryptedIndex = this.letters.indexOf(currentLetter);
