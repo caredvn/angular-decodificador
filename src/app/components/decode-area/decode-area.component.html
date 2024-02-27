@@ -1,10 +1,9 @@
 <div class="decode-area__container">
-  <!-- <article class="decode-area__placeholder">
+  <article class="decode-area__placeholder" *ngIf="newText.length <= 0">
     <p>não há nada a ser <span>encriptado</span></p>
-  </article> -->
-  <article class="decode-area__text">
-    <p>dsçsfmçrrfçrl</p>
-    <button class="btn copy" disabled>Copiar</button>
-    <button class=" btn decode">Desencriptar</button>
+  </article>
+  <article class="decode-area__text" *ngIf="newText.length > 0">
+    <p>{{ newText }}</p>
+    <button class="btn copy" (click)="copyText()">Copiar</button>
   </article>
 </div>

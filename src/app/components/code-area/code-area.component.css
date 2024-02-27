@@ -3,20 +3,30 @@
   gap: 2em;
   flex-direction: column;
   font-family: "JetBrains Mono", monospace;
+  margin-bottom: 2em;
 }
 
-.code-area__container > button {
+.btn {
   font-family: inherit;
   box-sizing: content-box;
-  width: 35%;
-  padding: .65em 1.25em;
   border-radius: 0.75em;
   border: none;
-  background-color: #C3FF45;
   color: #121212;
   font-weight: 600;
-  cursor: pointer;
   font-size: 1.2em;
+  padding: 0.25em 0.35em;
+  cursor: pointer;
+  padding: .75em;
+  width: 40%;
+}
+
+.code {
+  background-color: #C3FF45;
+}
+
+.decode {
+  background-color: #FCE71F;
+  align-self: flex-end;
 }
 
 .code-area__container > textarea {
@@ -41,15 +51,16 @@
 
 @media screen and (min-width: 768px) {
   .code-area__container {
-    padding-top: 1em;
+    margin: 0;
   }
-  .code-area__container > button {
+  .btn {
     width: 70%;
+    margin-bottom: 1.6rem;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .code-area__container > button {
+  .btn {
     width: 40%;
   }
 }

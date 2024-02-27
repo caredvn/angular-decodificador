@@ -1,10 +1,13 @@
 <div class="code-area__container">
-  <button (click)="code()">Encriptar</button>
+  <div class="btn__container">
+    <button class=" btn code" (click)="code()">Encriptar</button>
+  </div>
   <app-warning></app-warning>
   <textarea
   placeholder="Digite seu texto aqui..."
-  [(ngModel)]="text"
+  [(ngModel)]="textWritten"
   resize="none"
   spellcheck="false">
-  </textarea>
+</textarea>
+<button class=" btn decode" (click)="decode()">Desencriptar</button>
 </div>

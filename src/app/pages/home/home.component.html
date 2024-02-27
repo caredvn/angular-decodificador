@@ -4,16 +4,22 @@
       <a href="https://www.alura.com.br">
         <img src="https://raw.githubusercontent.com/caredvn/angular-decodificador/442baa548f8254422db154bc44bf67ace30756c0/src/assets/img/logo-alura.svg" alt="alura logo">
       </a>
-      <h1>Decodificador</h1>
+      <h1>{{ title }}</h1>
     </div>
   </header>
   <main>
     <section>
-      <app-code-area></app-code-area>
+      <app-code-area
+      (newTextChange)="onNewTextChange($event)"
+      [newText]="newText"
+      ></app-code-area>
     </section>
     <div></div>
     <section>
-      <app-decode-area></app-decode-area>
+      <app-decode-area
+      [textWritten]="textWritten"
+      [newText]="newText"
+      ></app-decode-area>
     </section>
   </main>
   <footer>

@@ -1,20 +1,29 @@
 .info__container {
   padding: 0 2em;
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(3, 30%);
   grid-template-rows: repeat(2, 1fr);
   gap: 0.5em;
+  align-items: center;
+  justify-content: center;
 }
 
 .info__container > img {
   grid-row: 1;
-  grid-column: 1;
+  grid-column: 3;
+  justify-self: flex-end;
 }
 
 .info__container > p {
   grid-row: 1;
-  grid-column: 2/4;
-  justify-self: flex-end;
+  grid-column: 1/3;
+  font-weight: 800;
+}
+
+.info__container > p > span {
+  font-family: 'JetBrains Mono';
+  color: #FF73A5;
+  transition: letter-spacing 300ms ease-in-out;
 }
 
 .info__contacts {
@@ -25,12 +34,19 @@
 .info__contacts > ul {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 0.5em;
 }
 
+.info__contacts__img {
+  width: 2em;
+}
+
+.info__container > p > span:hover {
+  letter-spacing: .3rem;
+}
+
 @media screen and (min-width: 768px) {
-  .info__contacts > ul {
-    justify-content: end;
+  .info__container > img {
+    width: 1.5em;
   }
 }

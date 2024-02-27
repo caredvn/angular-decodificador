@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-code-area',
@@ -7,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class CodeAreaComponent implements OnInit {
-  text: string = "";
-  textLetters: string[] = [];
-  letter: any[] = [];
-  encryptedLetter: any[] = []
+  letters: string[] = [];
+  @Input() textWritten: string = "";
+  @Input() newText: string = "";
+  @Output() newTextChange: EventEmitter<string> = new EventEmitter<string>();
+  filteredLetters: string[] = [];
+  encryptedLetters: string[] = [];
+  encryptedFilteredLetter: string[] = [];
 
   constructor() {
     let map = new Map([
@@ -30,53 +34,38 @@ export class CodeAreaComponent implements OnInit {
         "u","ufat"
       ]
     ])
-    for (let key of map.keys()) {
-      this.letter.push(key)
-    }
-    for (let value of map.values()) {
-      this.encryptedLetter.push(value)
+    for (let entry of map.entries()) {
+      this.letters.push(entry[0])
+      this.encryptedLetters.push(entry[1])
     }
   }
 
   code(): void {
-    for(let i = 0; i < this.text.length; i++) {
-      this.textLetters.push(this.text.charAt(i))
+    const currentTextWritten = this.textWritten;
+    for (var i = 0; i < this.textWritten.length; i++) {
+        var currentLetter = this.textWritten.charAt(i);
+        var encryptedIndex = this.letters.indexOf(currentLetter);
+        if (encryptedIndex !== -1) {
+            this.encryptedFilteredLetter.push(this.encryptedLetters[encryptedIndex]);
+            this.filteredLetters.push(this.letters[encryptedIndex])
+        }
     }
-    if(this.letter)
-    console.log(this.textLetters)
-    console.log(this.letter)
-  }
-  //   code(): void {
-  //     for(var i = 0; i < this.text.length; i++) {
-  //       this.letters.push(this.text.charAt(i))
-  //     }
+    this.newText = this.textWritten.replace(new RegExp(this.filteredLetters.join('|'), 'g'), (match) => {
+      const index = this.filteredLetters.indexOf(match);
+      return this.encryptedFilteredLetter[index];
+  });
+    this.newTextChange.emit(this.newText)
+    this.textWritten = '';
+}
 
-  //     for(var i = 0; i < this.words.length; i++){
-  //       this.words[i][0] = this.letter
-  //       // if(this.letter == this.letters.values()) {
-  //       //   console.log()
-  //       // }
-  //     }
-  //     console.log(this.letters)
-  //   }
-
-
-  // text: string = "";
-  // letter: string = "";
-  // letters: string[] = []
-  // wordCounting: number = 0;
-  // encriptedLetter: string = "";
-
-
-
-  // words: string[][] = [
-  //   ["i", "imes"],
-  //   ["e", "enter"],
-  //   ["a", "ai"],
-  //   ["o", "ober"],
-  //   ["u", "ufat"],
-  // ]
-
+decode(): void {
+    this.newText = this.textWritten.replace(new RegExp(this.encryptedFilteredLetter.join('|'), 'g'), (match) => {
+    const index = this.encryptedFilteredLetter.indexOf(match);
+    return this.filteredLetters[index];
+    })
+  this.newTextChange.emit(this.newText)
+  this.textWritten = '';
+}
 
   ngOnInit(): void {
   }
