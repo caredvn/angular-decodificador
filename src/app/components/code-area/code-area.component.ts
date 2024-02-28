@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { map } from 'rxjs';
 
 @Component({
   selector: 'app-code-area',
@@ -40,31 +39,41 @@ export class CodeAreaComponent implements OnInit {
     }
   }
 
-  code(): void {
+  lettersLoop() {
     for (var i = 0; i < this.textWritten.length; i++) {
-        var currentLetter = this.textWritten.charAt(i);
+      var currentLetter = this.textWritten.charAt(i);
         var encryptedIndex = this.letters.indexOf(currentLetter);
         if (encryptedIndex !== -1) {
             this.encryptedFilteredLetter.push(this.encryptedLetters[encryptedIndex]);
             this.filteredLetters.push(this.letters[encryptedIndex])
         }
     }
-    this.newText = this.textWritten.replace(new RegExp(this.filteredLetters.join('|'), 'g'), (match) => {
-      const index = this.filteredLetters.indexOf(match);
-      return this.encryptedFilteredLetter[index];
-  });
+    return this.encryptedFilteredLetter, this.filteredLetters;
+  }
+
+  replaceLetters(letterAray: string[], encryptedArray: string[]) {
+    this.newText = this.textWritten.replace(new RegExp(letterAray.join('|'), 'g'), (match) => {
+      const index = letterAray.indexOf(match);
+      return encryptedArray[index];
+    });
+    return this.newText
+  }
+
+  code(): void {
+    this.lettersLoop();
+    this.replaceLetters(this.filteredLetters, this.encryptedFilteredLetter)
+
     this.newTextChange.emit(this.newText)
     this.textWritten = '';
 }
 
-decode(): void {
-    this.newText = this.textWritten.replace(new RegExp(this.encryptedFilteredLetter.join('|'), 'g'), (match) => {
-    const index = this.encryptedFilteredLetter.indexOf(match);
-    return this.filteredLetters[index];
-    })
-  this.newTextChange.emit(this.newText)
-  this.textWritten = '';
-}
+  decode(): void {
+    this.lettersLoop();
+    this.replaceLetters(this.encryptedFilteredLetter, this.filteredLetters)
+
+    this.newTextChange.emit(this.newText)
+    this.textWritten = '';
+  }
 
   ngOnInit(): void {
   }
