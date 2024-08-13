@@ -14,6 +14,8 @@ export class CodeAreaComponent implements OnInit {
   filteredLetters: string[] = [];
   encryptedLetters: string[] = [];
   encryptedFilteredLetter: string[] = [];
+  capitalLetter: RegExp = /[A - Z]/;
+  accentedLetter: RegExp = /[áàãâéèâíìóòôãúùç]/i;
 
   constructor() {
     let map = new Map([
@@ -51,6 +53,10 @@ export class CodeAreaComponent implements OnInit {
     return this.encryptedFilteredLetter, this.filteredLetters;
   }
 
+  verifyLetter(text: string): boolean {
+    return this.accentedLetter.test(text) || this.capitalLetter.test(text)
+  }
+
   replaceLetters(letterAray: string[], encryptedArray: string[]) {
     this.newText = this.textWritten.replace(new RegExp(letterAray.join('|'), 'g'), (match) => {
       const index = letterAray.indexOf(match);
@@ -61,10 +67,14 @@ export class CodeAreaComponent implements OnInit {
 
   code(): void {
     this.lettersLoop();
-    this.replaceLetters(this.filteredLetters, this.encryptedFilteredLetter)
+    if (this.verifyLetter(this.textWritten)) {
+      alert('Por favor, insira apenas letras mínusculas e sem acento.')
+    } else {
+      this.replaceLetters(this.filteredLetters, this.encryptedFilteredLetter)
 
-    this.newTextChange.emit(this.newText)
-    this.textWritten = '';
+      this.newTextChange.emit(this.newText)
+      this.textWritten = '';
+    }
 }
 
   decode(): void {
