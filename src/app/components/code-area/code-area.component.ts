@@ -14,7 +14,7 @@ export class CodeAreaComponent implements OnInit {
   filteredLetters: string[] = [];
   encryptedLetters: string[] = [];
   encryptedFilteredLetter: string[] = [];
-  capitalLetter: RegExp = /[A - Z]/;
+  capitalLetter: RegExp = /[A-Z]/;
   accentedLetter: RegExp = /[áàãâéèâíìóòôãúùç]/i;
 
   constructor() {
